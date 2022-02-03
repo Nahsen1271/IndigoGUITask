@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
                 "html:target/default-html-reports",// default  rapor için herhangi bir plugine gerek yok. Cukesta çalıştırman gerekiyor.
                 "rerun:target/rerun.txt"},
         features =  "src/test/resources/features",
-        glue = "com/rocketlab/stepDefinitions",
+        glue = "com/Indigo/stepDefinitions",
         dryRun = false,
         tags = "@nahsen"
 
