@@ -15,13 +15,26 @@ public class TaxProfilePage {
     @FindBy(css = "#insertButton")
     public WebElement plusIcon;
 
+    @FindBy(xpath = "(//*[@data-context='TaxProfile'])[1]")
+    public WebElement profileNameBox;
+
+    @FindBy(css = "input[id$='Description-']")
+    public WebElement profileDescriptionBox;
+
+    @FindBy(xpath = "(//*[@data-context='TaxProfile'])[1]")
+    public WebElement profileDescForClck;
+
+    @FindBy(xpath = "(//div[text()='FSS Main'])[1]")
+    public WebElement statusType;
+
+    @FindBy(xpath = "//*[@role='option'][2]")
+    public WebElement fssPartTimeBtn;
+
+    @FindBy(css= ".jqx-checkbox-default.jqx-checkbox-default-metro.jqx-fill-state-normal.jqx-fill-state-normal-metro.jqx-rc-all.jqx-rc-all-metro.jqx-checkbox-rtl.jqx-checkbox-rtl-metro")
+    public WebElement taxOnAnnualProjGrossCheckBox;
 
 
-//    public void getPageTitle(WebElement webElement){
-//        String expectedPageTitle="QATest01 - People Module";
-//        BrowserUtils.waitForClickablility(webElement,10);
-//        String currentPageTitle= Driver.get().getTitle();
-//        Assert.assertEquals(expectedPageTitle,currentPageTitle);
-//    }
+    @FindBy(xpath = "//div[@id='saveButton']")
+    public WebElement saveButton;
 
 }

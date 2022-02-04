@@ -1,5 +1,5 @@
 Feature: Homepage
-  @nahsen
+
   Scenario: Navigating to homepage
     Given User is on the login page
     And User can navigate to home page using "IntQA19" and "Me13357691."
