@@ -1,11 +1,11 @@
 package com.Indigo.pages;
 
 import com.Indigo.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
@@ -58,8 +58,13 @@ public class RatePage {
     @FindBy(xpath = "//button[normalize-space()='delete']")
     public WebElement deleteConfirmation ;
 
-    @FindBy( css = ".jqx-grid-cell-left-align.optional")
-    public List <WebElement> senden;
+    //qx-input-metro jqx-widget-content-metro jqx-widget-content jqx-input-widget jqx-input jqx-widget jqx-rc-all mandatory warning
+
+    @FindBy( css = ".qx-input-metro.qx-widget-content-metro.jqx-widget-content.jqx-input-widget.jqx-input.jqx-widget.jqx-rc-all.mandatory.warning")
+    public List <WebElement> listOfCode;
+
+    @FindBy( css = "jqx-grid-cell-left-align")
+    public List <WebElement> listOfNewProfiles;
 
     public void assignDate(WebElement webElement,String day,String month,String year) {
         webElement.sendKeys(day);
@@ -75,16 +80,15 @@ public class RatePage {
     }
     public void listofCreatedItem(List<WebElement>webElements,String str){
         for (WebElement option:webElements){
-            if(option.getText()==str){
-
-                System.out.println("It is created successfully");
+            if(option.getText().equals(str)){
+                Assert.assertEquals(option.getText(),str);
 
             }
         }
     }
-    public WebElement findRecord(String str) {
-
-        return Driver.get().findElement(By.xpath("//div[contains(text(),"+str+")]"));
-    }
+//    public WebElement findRecord(String str) {
+//
+//        return Driver.get().findElement(By.xpath("//div[contains(text(),'"+str+"')]/parent::*/../div"));
+//    }
 
 }

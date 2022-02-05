@@ -4,8 +4,6 @@ import com.Indigo.pages.HomePage;
 import com.Indigo.pages.LoginPage;
 import com.Indigo.pages.TaxProfilePage;
 import com.Indigo.utilities.BrowserUtils;
-import com.Indigo.utilities.ConfigurationReader;
-import com.Indigo.utilities.Driver;
 import io.cucumber.java.en.*;
 
 public class HomeStepDef {
@@ -36,6 +34,5 @@ public class HomeStepDef {
     public void user_can_navigate_to_Tax_Profile_Page() {
         String expectedPageTitle="QATest01 - Tax Profiles";
         homePage.getPageTitle(expectedPageTitle,taxProfilePage.plusIcon);
-
     }
 }

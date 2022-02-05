@@ -2,13 +2,11 @@ package com.Indigo.stepDefinitions;
 
 import com.Indigo.pages.HomePage;
 import com.Indigo.pages.LoginPage;
-import com.Indigo.utilities.BrowserUtils;
 import com.Indigo.utilities.ConfigurationReader;
 import com.Indigo.utilities.Driver;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+
 
 public class LoginStepDef {
     HomePage homePage=new HomePage();

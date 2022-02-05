@@ -21,8 +21,7 @@ public class RateStepDef {
     @Given("User can navigate to the rate page")
     public void userCanNavigateToTheRatePage() {
         BrowserUtils.waitFor(3);
-       // ratePage.newRecordCheckBox.click();
-        ratePage.findRecord("Nahsen").click();
+        ratePage.newRecordCheckBox.click();
         BrowserUtils.waitFor(1);
         ratePage.rateButton.click();
         BrowserUtils.waitFor(1);
@@ -33,8 +32,7 @@ public class RateStepDef {
     public void userCanCreateANewRate() {
         taxProfilePage.plusIcon.click();
         BrowserUtils.waitFor(5);
-       // ratePage.codeBox.click();
-        ratePage.codeBox.sendKeys("1271CNF", Keys.TAB);
+        ratePage.codeBox.sendKeys("1271HCF", Keys.TAB);
 
         BrowserUtils.waitFor(3);
         ratePage.assignDate(ratePage.dateFromBox,"11","01","2020");
@@ -61,13 +59,15 @@ public class RateStepDef {
     @Then("User checks if there is a new rate")
     public void userChecksIfThereIsANewRate() {
 
-    ratePage.listofCreatedItem(ratePage.senden,"1271CNF");
+    ratePage.listofCreatedItem(ratePage.listOfCode,"1271HCF");
 
     }
 
     @When("User can edit new changes")
     public void userCanEditNewChanges() {
         ratePage.newRecordCheckBox.click();
+        ratePage.rateButton.click();
+        ratePage.existingRecordcheckBox.click();
         ratePage.editButton.click();
         ratePage.assignDate(ratePage.dateFromBox,"02","02","2020");
         ratePage.assignDate(ratePage.dateFromBox,"03","05","2022");
@@ -80,6 +80,9 @@ public class RateStepDef {
 
     @When("User can delete the profile")
     public void userCanDeleteTheProfile() {
+        ratePage.newRecordCheckBox.click();
+        ratePage.rateButton.click();
+        ratePage.existingRecordcheckBox.click();
         ratePage.deleteButton.click();
         BrowserUtils.waitForClickablility(ratePage.deleteConfirmation,10);
         ratePage.deleteConfirmation.click();
@@ -88,7 +91,6 @@ public class RateStepDef {
 
     @Then("User checks if it is deleted")
     public void userChecksIfItIsDeleted() {
-
 
 
     }
