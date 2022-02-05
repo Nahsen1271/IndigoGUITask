@@ -4,13 +4,8 @@ import com.Indigo.pages.RatePage;
 import com.Indigo.pages.TaxProfilePage;
 import com.Indigo.utilities.BrowserUtils;
 import io.cucumber.java.en.*;
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class RateStepDef {
@@ -91,7 +86,5 @@ public class RateStepDef {
 
     @Then("User checks if it is deleted")
     public void userChecksIfItIsDeleted() {
-
-
     }
 }
