@@ -22,7 +22,7 @@ public class TaxProStepDef {
     @And("User can create a new profile")
     public void userCanCreateANewProfile() {
         BrowserUtils.waitFor(3);
-        taxProfilePage.profileNameBox.sendKeys("Aahmet", Keys.TAB);
+        taxProfilePage.profileNameBox.sendKeys("Nahsen", Keys.TAB);
 
         //String words = "return document.querySelector(\"[id$='Description-']\")";
         Driver.get().findElement(By.xpath("(//*[@data-context='TaxProfile'])[2]")).click();
@@ -49,7 +49,7 @@ public class TaxProStepDef {
     @And("User check if there is a new profile")
     public void userCheckIfThereIsANewProfile() {
         String actualName= taxProfilePage.profileNameBox.getText();
-        String expectedName= "Aahmet";
+        String expectedName= "Nahsen";
         Assert.assertEquals(expectedName,actualName);
         }
 }

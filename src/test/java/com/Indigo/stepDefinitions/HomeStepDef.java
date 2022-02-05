@@ -3,6 +3,7 @@ package com.Indigo.stepDefinitions;
 import com.Indigo.pages.HomePage;
 import com.Indigo.pages.LoginPage;
 import com.Indigo.pages.TaxProfilePage;
+import com.Indigo.utilities.BrowserUtils;
 import com.Indigo.utilities.ConfigurationReader;
 import com.Indigo.utilities.Driver;
 import io.cucumber.java.en.*;
@@ -27,6 +28,7 @@ public class HomeStepDef {
 
     @When("User clicks the Tax Profiles")
     public void user_clicks_the_Tax_Profiles() {
+        BrowserUtils.waitFor(3);
         homePage.taxProfile.click();
     }
 

@@ -21,7 +21,8 @@ public class RateStepDef {
     @Given("User can navigate to the rate page")
     public void userCanNavigateToTheRatePage() {
         BrowserUtils.waitFor(3);
-        ratePage.newRecordCheckBox.click();
+       // ratePage.newRecordCheckBox.click();
+        ratePage.findRecord("Nahsen").click();
         BrowserUtils.waitFor(1);
         ratePage.rateButton.click();
         BrowserUtils.waitFor(1);
@@ -32,7 +33,7 @@ public class RateStepDef {
     public void userCanCreateANewRate() {
         taxProfilePage.plusIcon.click();
         BrowserUtils.waitFor(5);
-        ratePage.codeBox.click();
+       // ratePage.codeBox.click();
         ratePage.codeBox.sendKeys("1271CNF", Keys.TAB);
 
         BrowserUtils.waitFor(3);
@@ -55,30 +56,12 @@ public class RateStepDef {
 
         BrowserUtils.waitFor(1);
         ratePage.showAsPtCheckBox.click();
-
-
     }
 
     @Then("User checks if there is a new rate")
     public void userChecksIfThereIsANewRate() {
 
-
-
-
-//        System.out.println("dropdownOptions.size() = " + dropdownOptions.size());
-//
-//        Assert.assertEquals(dropdownOptions.size(),5,"verify size of options");
-//
-//        for (WebElement option : dropdownOptions) {
-//
-//            System.out.println("option.getText() = " + option.getText());
-//
-//        }
-//        dropdownOptions.get(2).click();
-//        actualRateCode=ratePage.codeBox;
-//        System.out.println("actualRateCode = " + actualRateCode);
-//        String expectedRateCode="1271CNF";
-//        Assert.assertEquals(expectedRateCode,actualRateCode);
+    ratePage.listofCreatedItem(ratePage.senden,"1271CNF");
 
     }
 
@@ -89,28 +72,23 @@ public class RateStepDef {
         ratePage.assignDate(ratePage.dateFromBox,"02","02","2020");
         ratePage.assignDate(ratePage.dateFromBox,"03","05","2022");
         ratePage.assignRate(ratePage.rangeFrom,"01","03");
-
-         ratePage.assignRate(ratePage.rangeTo,"11","02");
-
-
+        ratePage.assignRate(ratePage.rangeTo,"11","02");
         ratePage.assignRate(ratePage.taxRate,"05","05");
-
-
         ratePage.assignRate(ratePage.subtract,"02","01");
-
-
         ratePage.showAsPtCheckBox.click();
-
     }
 
     @When("User can delete the profile")
     public void userCanDeleteTheProfile() {
-
+        ratePage.deleteButton.click();
+        BrowserUtils.waitForClickablility(ratePage.deleteConfirmation,10);
+        ratePage.deleteConfirmation.click();
 
     }
 
     @Then("User checks if it is deleted")
     public void userChecksIfItIsDeleted() {
+
 
 
     }

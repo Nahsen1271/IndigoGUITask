@@ -1,6 +1,7 @@
 package com.Indigo.pages;
 
 import com.Indigo.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -58,7 +59,7 @@ public class RatePage {
     public WebElement deleteConfirmation ;
 
     @FindBy( css = ".jqx-grid-cell-left-align.optional")
-    List <WebElement> senden;
+    public List <WebElement> senden;
 
     public void assignDate(WebElement webElement,String day,String month,String year) {
         webElement.sendKeys(day);
@@ -81,6 +82,9 @@ public class RatePage {
             }
         }
     }
+    public WebElement findRecord(String str) {
 
+        return Driver.get().findElement(By.xpath("//div[contains(text(),"+str+")]"));
+    }
 
 }

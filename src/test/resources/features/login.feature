@@ -1,6 +1,6 @@
 Feature:Login
 
-  @lz
+
   Scenario Outline: User can login with credential username and password
     Given User is on the login page
     When User types the credential "<username>" and "<password>"
