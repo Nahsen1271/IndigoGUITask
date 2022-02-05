@@ -56,6 +56,7 @@ public class RateStepDef {
         BrowserUtils.waitFor(1);
         ratePage.showAsPtCheckBox.click();
 
+
     }
 
     @Then("User checks if there is a new rate")
@@ -81,4 +82,36 @@ public class RateStepDef {
 
     }
 
+    @When("User can edit new changes")
+    public void userCanEditNewChanges() {
+        ratePage.newRecordCheckBox.click();
+        ratePage.editButton.click();
+        ratePage.assignDate(ratePage.dateFromBox,"02","02","2020");
+        ratePage.assignDate(ratePage.dateFromBox,"03","05","2022");
+        ratePage.assignRate(ratePage.rangeFrom,"01","03");
+
+         ratePage.assignRate(ratePage.rangeTo,"11","02");
+
+
+        ratePage.assignRate(ratePage.taxRate,"05","05");
+
+
+        ratePage.assignRate(ratePage.subtract,"02","01");
+
+
+        ratePage.showAsPtCheckBox.click();
+
+    }
+
+    @When("User can delete the profile")
+    public void userCanDeleteTheProfile() {
+
+
+    }
+
+    @Then("User checks if it is deleted")
+    public void userChecksIfItIsDeleted() {
+
+
+    }
 }

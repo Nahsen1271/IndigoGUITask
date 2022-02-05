@@ -20,3 +20,13 @@ Feature: Tax Profile
       And User can save the new input
       Then User checks if there is a new rate
 
+  Scenario: Editing an existing Tax Profile
+    Given User can navigate to the rate page
+    When User can edit new changes
+    And User can save the new input
+    Then User checks if there is a new rate
+
+  Scenario: Deleting an existing Tax Profile
+    Given User can navigate to  Tax Profile Page
+    When User can delete the profile
+    Then User checks if it is deleted

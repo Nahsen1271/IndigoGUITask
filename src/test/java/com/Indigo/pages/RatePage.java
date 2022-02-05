@@ -4,6 +4,7 @@ import com.Indigo.utilities.Driver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
@@ -44,8 +45,20 @@ public class RatePage {
     @FindBy(xpath = "//div[@role='checkbox']")
     public WebElement showAsPtCheckBox ;
 
-    @FindBy(xpath = "(//div[contains(@id,'contenttable')])[2]/div/div[2]/input")
-    List<WebElement> actualRateCode;
+    @FindBy(xpath = "(//div[@role='gridcell'])[5]")
+    public WebElement existingRecordcheckBox ;
+
+    @FindBy(css= "[data-uid='Tax Rate-editButton']")
+    public WebElement editButton;
+
+    @FindBy(xpath = "//*[@id='deleteActionButton']")
+    public WebElement deleteButton ;
+
+    @FindBy(xpath = "//button[normalize-space()='delete']")
+    public WebElement deleteConfirmation ;
+
+    @FindBy( css = ".jqx-grid-cell-left-align.optional")
+    List <WebElement> senden;
 
     public void assignDate(WebElement webElement,String day,String month,String year) {
         webElement.sendKeys(day);
@@ -58,6 +71,15 @@ public class RatePage {
         webElement.sendKeys(str2);
         webElement.sendKeys(Keys.TAB);
 
+    }
+    public void listofCreatedItem(List<WebElement>webElements,String str){
+        for (WebElement option:webElements){
+            if(option.getText()==str){
+
+                System.out.println("It is created successfully");
+
+            }
+        }
     }
 
 
