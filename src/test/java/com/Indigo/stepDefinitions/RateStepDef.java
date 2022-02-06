@@ -16,8 +16,9 @@ public class RateStepDef {
     @Given("User can navigate to the rate page")
     public void userCanNavigateToTheRatePage() {
         BrowserUtils.waitFor(3);
-        ratePage.newRecordCheckBox.click();
-        BrowserUtils.waitFor(1);
+        //ratePage.newRecordCheckBox.click();
+        ratePage.findNewRecord("Aahmet").click();
+        BrowserUtils.waitFor(2);
         ratePage.rateButton.click();
         BrowserUtils.waitFor(1);
 
@@ -27,7 +28,7 @@ public class RateStepDef {
     public void userCanCreateANewRate() {
         taxProfilePage.plusIcon.click();
         BrowserUtils.waitFor(5);
-        ratePage.codeBox.sendKeys("1271HCF", Keys.TAB);
+        ratePage.codeBox.sendKeys("NF1271", Keys.TAB);
 
         BrowserUtils.waitFor(3);
         ratePage.assignDate(ratePage.dateFromBox,"11","01","2020");
@@ -54,22 +55,33 @@ public class RateStepDef {
     @Then("User checks if there is a new rate")
     public void userChecksIfThereIsANewRate() {
 
-    ratePage.listofCreatedItem(ratePage.listOfCode,"1271HCF");
+    ratePage.listofCreatedItem(ratePage.listOfCode,"NF1271");
 
     }
 
     @When("User can edit new changes")
     public void userCanEditNewChanges() {
+        BrowserUtils.waitFor(1);
         ratePage.newRecordCheckBox.click();
+        BrowserUtils.waitFor(1);
         ratePage.rateButton.click();
+        BrowserUtils.waitFor(1);
         ratePage.existingRecordcheckBox.click();
+        BrowserUtils.waitFor(1);
         ratePage.editButton.click();
+        BrowserUtils.waitFor(1);
         ratePage.assignDate(ratePage.dateFromBox,"02","02","2020");
+        BrowserUtils.waitFor(1);
         ratePage.assignDate(ratePage.dateFromBox,"03","05","2022");
+        BrowserUtils.waitFor(1);
         ratePage.assignRate(ratePage.rangeFrom,"01","03");
+        BrowserUtils.waitFor(1);
         ratePage.assignRate(ratePage.rangeTo,"11","02");
+        BrowserUtils.waitFor(1);
         ratePage.assignRate(ratePage.taxRate,"05","05");
+        BrowserUtils.waitFor(1);
         ratePage.assignRate(ratePage.subtract,"02","01");
+        BrowserUtils.waitFor(1);
         ratePage.showAsPtCheckBox.click();
     }
 

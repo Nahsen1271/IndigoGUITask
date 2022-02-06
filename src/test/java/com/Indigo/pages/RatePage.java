@@ -19,6 +19,7 @@ public class RatePage {
     @FindBy(xpath = "(//*[contains(@class,'jqx-checkbox-default jqx-check')])[2]")
     public WebElement newRecordCheckBox;
 
+
     @FindBy(css = "#taxratebutton")
     public WebElement rateButton;
 
@@ -86,9 +87,10 @@ public class RatePage {
             }
         }
     }
-//    public WebElement findRecord(String str) {
-//
-//        return Driver.get().findElement(By.xpath("//div[contains(text(),'"+str+"')]/parent::*/../div"));
-//    }
+    public WebElement findNewRecord(String str) {
+
+        return Driver.get().findElement(By.xpath("//div[contains(text(),'"+str+"')]/parent::*/../div"));
+    }
+
 
 }
