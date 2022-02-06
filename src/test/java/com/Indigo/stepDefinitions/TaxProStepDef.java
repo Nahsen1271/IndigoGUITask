@@ -24,7 +24,7 @@ public class TaxProStepDef {
     @And("User can create a new profile")
     public void userCanCreateANewProfile() {
         BrowserUtils.waitFor(3);
-        taxProfilePage.profileNameBox.sendKeys("Aahmet", Keys.TAB);
+        taxProfilePage.profileNameBox.sendKeys("Ahsen", Keys.TAB);
 
 
         Driver.get().findElement(By.xpath("(//*[@data-context='TaxProfile'])[2]")).click();
@@ -47,7 +47,7 @@ public class TaxProStepDef {
     @And("User check if there is a new profile")
     public void userCheckIfThereIsANewProfile() {
 
-        ratePage.listofCreatedItem(ratePage.listOfNewProfiles,"Aahmet");
+        ratePage.listofCreatedItem(ratePage.listOfNewProfiles,"Ahsen");
 
         }
 }

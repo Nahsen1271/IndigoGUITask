@@ -17,7 +17,7 @@ public class RateStepDef {
     public void userCanNavigateToTheRatePage() {
         BrowserUtils.waitFor(3);
         //ratePage.newRecordCheckBox.click();
-        ratePage.findNewRecord("Aahmet").click();
+        ratePage.findNewRecord("Ahsen").click();
         BrowserUtils.waitFor(2);
         ratePage.rateButton.click();
         BrowserUtils.waitFor(1);
@@ -28,7 +28,7 @@ public class RateStepDef {
     public void userCanCreateANewRate() {
         taxProfilePage.plusIcon.click();
         BrowserUtils.waitFor(5);
-        ratePage.codeBox.sendKeys("NF1271", Keys.TAB);
+        ratePage.codeBox.sendKeys("NFC1271", Keys.TAB);
 
         BrowserUtils.waitFor(3);
         ratePage.assignDate(ratePage.dateFromBox,"11","01","2020");
@@ -55,7 +55,7 @@ public class RateStepDef {
     @Then("User checks if there is a new rate")
     public void userChecksIfThereIsANewRate() {
 
-    ratePage.listofCreatedItem(ratePage.listOfCode,"NF1271");
+    ratePage.listofCreatedItem(ratePage.listOfCode,"NFC1271");
 
     }
 
@@ -72,7 +72,7 @@ public class RateStepDef {
         BrowserUtils.waitFor(1);
         ratePage.assignDate(ratePage.dateFromBox,"02","02","2020");
         BrowserUtils.waitFor(1);
-        ratePage.assignDate(ratePage.dateFromBox,"03","05","2022");
+        ratePage.assignDate(ratePage.dateToBox,"03","05","2022");
         BrowserUtils.waitFor(1);
         ratePage.assignRate(ratePage.rangeFrom,"01","03");
         BrowserUtils.waitFor(1);
@@ -87,7 +87,8 @@ public class RateStepDef {
 
     @When("User can delete the profile")
     public void userCanDeleteTheProfile() {
-        ratePage.newRecordCheckBox.click();
+       // ratePage.newRecordCheckBox.click();
+        ratePage.findNewRecord("Ahsen").click();
         ratePage.rateButton.click();
         ratePage.existingRecordcheckBox.click();
         ratePage.deleteButton.click();
