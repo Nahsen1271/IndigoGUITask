@@ -33,7 +33,6 @@ public class TaxProfilePage {
     @FindBy(css= ".jqx-checkbox-default.jqx-checkbox-default-metro.jqx-fill-state-normal.jqx-fill-state-normal-metro.jqx-rc-all.jqx-rc-all-metro.jqx-checkbox-rtl.jqx-checkbox-rtl-metro")
     public WebElement taxOnAnnualProjGrossCheckBox;
 
-
     @FindBy(xpath = "//div[@id='saveButton']")
     public WebElement saveButton;
 

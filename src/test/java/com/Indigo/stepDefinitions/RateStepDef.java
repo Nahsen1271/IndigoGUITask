@@ -3,7 +3,9 @@ package com.Indigo.stepDefinitions;
 import com.Indigo.pages.RatePage;
 import com.Indigo.pages.TaxProfilePage;
 import com.Indigo.utilities.BrowserUtils;
+import com.Indigo.utilities.ConfigurationReader;
 import io.cucumber.java.en.*;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
 
@@ -17,7 +19,7 @@ public class RateStepDef {
     public void userCanNavigateToTheRatePage() {
         BrowserUtils.waitFor(3);
         //ratePage.newRecordCheckBox.click();
-        ratePage.findNewRecord("Ahsen").click();
+        ratePage.findNewRecord(ConfigurationReader.get("name")).click();
         BrowserUtils.waitFor(2);
         ratePage.rateButton.click();
         BrowserUtils.waitFor(1);
@@ -28,7 +30,7 @@ public class RateStepDef {
     public void userCanCreateANewRate() {
         taxProfilePage.plusIcon.click();
         BrowserUtils.waitFor(5);
-        ratePage.codeBox.sendKeys("NFC1271", Keys.TAB);
+        ratePage.codeBox.sendKeys(ConfigurationReader.get("code"), Keys.TAB);
 
         BrowserUtils.waitFor(3);
         ratePage.assignDate(ratePage.dateFromBox,"11","01","2020");
@@ -55,7 +57,7 @@ public class RateStepDef {
     @Then("User checks if there is a new rate")
     public void userChecksIfThereIsANewRate() {
 
-    ratePage.listofCreatedItem(ratePage.listOfCode,"NFC1271");
+    ratePage.listofCreatedItem(ratePage.listOfCode,ConfigurationReader.get("code"));
 
     }
 
@@ -87,11 +89,13 @@ public class RateStepDef {
 
     @When("User can delete the profile")
     public void userCanDeleteTheProfile() {
-       // ratePage.newRecordCheckBox.click();
-        ratePage.findNewRecord("Ahsen").click();
-        ratePage.rateButton.click();
+        BrowserUtils.waitFor(1);
+        ratePage.findNewRecord(ConfigurationReader.get("name")).click();
+        BrowserUtils.waitFor(1);
         ratePage.existingRecordcheckBox.click();
+        BrowserUtils.waitFor(1);
         ratePage.deleteButton.click();
+        BrowserUtils.waitFor(1);
         BrowserUtils.waitForClickablility(ratePage.deleteConfirmation,10);
         ratePage.deleteConfirmation.click();
 
@@ -99,5 +103,7 @@ public class RateStepDef {
 
     @Then("User checks if it is deleted")
     public void userChecksIfItIsDeleted() {
+        BrowserUtils.waitFor(1);
+        Assert.assertTrue(ratePage.deletingPopup.isDisplayed());
     }
 }

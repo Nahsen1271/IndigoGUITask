@@ -13,7 +13,7 @@ Feature: Tax Profile
     Then User can save the new input
     And User check if there is a new profile
 
-    Scenario: Create a new rate
+  Scenario: Create a new rate
       Given User can navigate to the rate page
       When User can click plus button
       And User can create a new rate

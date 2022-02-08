@@ -59,7 +59,8 @@ public class RatePage {
     @FindBy(xpath = "//button[normalize-space()='delete']")
     public WebElement deleteConfirmation ;
 
-    //qx-input-metro jqx-widget-content-metro jqx-widget-content jqx-input-widget jqx-input jqx-widget jqx-rc-all mandatory warning
+    @FindBy(css = "div.toast-message")
+    public WebElement deletingPopup;
 
     @FindBy( css = ".qx-input-metro.qx-widget-content-metro.jqx-widget-content.jqx-input-widget.jqx-input.jqx-widget.jqx-rc-all.mandatory.warning")
     public List <WebElement> listOfCode;
